@@ -1,0 +1,25 @@
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contacts</a></li>
+
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching conatct">
+      </ul>
+
+
+      <h3>{{title}}</h3>
+    <div class="d-flex mt-3">
+      <div class="p-2 flex-fillchip">
+
+    <li *ngFor="let contact of contacts | filter:searchText" >
+      <div class="chip">
+          <img src="../../assets/img/user.png" alt="Person" width="96" height="96">
+          {{contact.name}}<br/>
+          Phone: {{contact.phone}}<br/>
+          Email: {{contact.Email}}
+          <button type="button" class="btn btn-info" [disabled]="clicked" (click)="actionMethod(); clicked = true;">Reveal</button>
+        </div>
+    </li> 
+  </div>
+    </div>   
+</div>

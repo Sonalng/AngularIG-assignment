@@ -1,0 +1,56 @@
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Company Account</a></li>
+      </ul>
+
+    <div class="d-flex flex-row mt-3">
+        <li *ngFor="let company of companies" [class.selected]="company === selectedCompany" (click)="onSelect(company)">
+        <div class="p-2 flex-fill">
+                <div class="card">
+                    <div class="container">
+                      <h4><b>{{company.companyName}}</b></h4>
+                      <p> <i class="fa fa-address-card" aria-hidden="true"></i> {{company.companyAddress}}</p>
+                      <p><i class="fa fa-phone-square" aria-hidden="true"></i> {{company.companyContact}}</p>
+                     
+                    </div>
+                </div>
+                <div class="flex-row mt-3">
+                <div *ngIf="selectedCompany">
+
+                    <h4>{{selectedCompany.companyName | uppercase}} Details</h4>
+                    <!-- <div><span>id: </span>{{selectedCompany.id}}</div> -->
+                    <div class="form-group">
+                        <label>Address:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.companyAddress">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact No:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.companyContact">
+                    </div>
+                    <div class="form-group">
+                        <label>Website:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.companyWebsite">
+                    </div>
+                    <div class="form-group">
+                        <label>ownership:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.ownership">
+                    </div>
+                    <div class="form-group">
+                        <label>Industry:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.industry">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Revenue:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.revenue">
+                    </div>
+                    <div class="form-group">
+                        <label>No of Employee:</label>
+                        <input type="text" class="form-control" [(ngModel)]="selectedCompany.employeeSize">
+                    </div>
+                  </div>
+                </div>
+            </div>  
+         </li>   
+      </div>   
+</div>
